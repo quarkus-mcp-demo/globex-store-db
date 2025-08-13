@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel8/postgresql-12
+FROM registry.redhat.io/rhel9/postgresql-16
 
 USER 0
 
