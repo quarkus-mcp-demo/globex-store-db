@@ -39,6 +39,14 @@ INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('in
 INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), 'RHNAM-054E-RED', 'http://maps.google.com/?q=Singapore', 'Singapore', 77);
 INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), 'RHNAM-252-BLK', 'http://maps.google.com/?q=Boston', 'Boston', 121);
 INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), 'RHNAM-219-BLKGRY', 'http://maps.google.com/?q=Seoul', 'Seoul', 29);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '101808', 'http://maps.google.com/?q=Paris', 'Paris', 258);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '144011', 'http://maps.google.com/?q=Paris', 'Paris', 45);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '459639', 'http://maps.google.com/?q=Paris', 'Paris', 56);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '101793', 'http://maps.google.com/?q=Paris', 'Paris', 48);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '101759', 'http://maps.google.com/?q=Paris', 'Paris', 16);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '328580', 'http://maps.google.com/?q=Paris', 'Paris', 4);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '422807', 'http://maps.google.com/?q=Paris', 'Paris', 9);
+INSERT INTO INVENTORY (id, itemId, link, location, quantity) VALUES (nextval('inventory_sequence'), '433140', 'http://maps.google.com/?q=Paris', 'Paris', 2);
 
 INSERT INTO category (category_id, category) VALUES (1, 'clothing');
 INSERT INTO category (category_id, category) VALUES (2, 'utensils');
@@ -47,6 +55,8 @@ INSERT INTO category (category_id, category) VALUES (4, 'office supplies');
 INSERT INTO category (category_id, category) VALUES (5, 'fashion accessory');
 INSERT INTO category (category_id, category) VALUES (6, 'electronics');
 INSERT INTO category (category_id, category) VALUES (7, 'sports equipment');
+INSERT INTO category (category_id, category) VALUES (8, 'drum sticks');
+INSERT INTO category (category_id, category) VALUES (9, 'drum shell sets');
 
 INSERT INTO catalog (item_id, name, description, category, price) VALUES ('329299', 'Quarkus T-shirt', 'Our T-Shirt is an everyday essential! This short-sleeve heavyweight T-shirt is comfortable, economical and made to last. Designed with a traditional fit that runs true to size, he’ll show off his personality, humor and interests with an easy, relaxed style.', 1, 10.00);
 INSERT INTO catalog (item_id, name, description, category, price) VALUES ('329199', 'Pronounced Kubernetes', 'Our Men''s Value T-Shirt is an everyday essential! This short-sleeve heavyweight T-shirt is comfortable, economical and made to last. Designed with a traditional fit that runs true to size, he’ll show off his personality, humor and interests with an easy, relaxed style.', 1, 9.00);
@@ -89,6 +99,14 @@ INSERT INTO catalog (item_id, name, description, category, price) VALUES ('RHNAM
 INSERT INTO catalog (item_id, name, description, category, price) VALUES ('RHNAM-054E-RED', 'Fedora Shaped Earrings', 'Fedora Shaped Earrings', 5, 46.00);
 INSERT INTO catalog (item_id, name, description, category, price) VALUES ('RHNAM-252-BLK', 'JBL Live 460 Wireless NC Headphone', 'Feel the power of JBL Signature Sound delivered by 40mm drivers, enjoy the convenience of Adaptive Noise Cancelling and Smart Ambient technologies that allow you to focus on what matters for you, and talk to your favorite Voice Assistant with a tap on the ear cup. Dimensions: 9 x 8 x 2.2.', 6, 129.95);
 INSERT INTO catalog (item_id, name, description, category, price) VALUES ('RHNAM-219-BLKGRY', 'Two-Tone Double-Layer Yoga Mat', 'This two-tone double-layer yoga mat offers excellent traction and is hypoallergenic, non-toxic and odor-free. Made of closed-cell themorplastic elastomer. Mat size: 24 1/8" W x 71" L', 7, 25.00);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('101808', 'Vic Firth 5A American Classic Hickory', 'Size 5A - American Classic Series - Hickory wood - Wooden tips - Teardrop tips - Ideal for rock and as practice sticks - Length: 406 mm - Diameter: 14,4 mm', 8, 13.90);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('144011', 'Millenium 5A Maple Drumsticks', 'Material: Maple wood - With wooden tips - Length: 402 mm - Tip length: 13 mm - Body: 14,9 mm - Shoulder: 6 mm - Price for pair', 8, 2.25);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('459639', 'Kuppmen 5A Carbon Fiber Sticks', 'Strength: 5A - Material: Carbon - Identical weight to wooden sticks - Non-slip surface - Up to 10 times more durable than wooden sticks - Quantity: 1 Pair', 8, 29.00);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('101793', 'Vater 5A Los Angeles Sticks Wood','Size: 5A - American hickory wood - Wooden tips - Los Angeles - Length: 40.65 cm - Diameter: 14.5 mm - Very well balanced stick, heavier toward the tip for fast response - Good rebound from the drum', 8, 12.80);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('101759', 'Pro Mark TX5AW 5A Hickory - Wood Tip', 'Size: 5A - Hickory wood - Wooden tips - The quintessential drumstick - Suitable for all music styles - Length: 40.64 cm', 8, 13.90);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('328580', 'Gretsch Drums Catalina Club Jazz', 'Shell Set - Catalina Club Series - Jazz set - 7-Ply, 100% mahogany shells - Matt lacquered - 30 degrees bearing edge on all shells - GTS free-swinging Tom suspension mount - 1.6 mm hoops - Colour: Satin Walnut Glaze (SWG) - Set configuration: 18" x 14" Bass drum - 12" x 08" Tom Tom - 14" x 14" Floor tom - 14" x 5.5" Snare drum - Set includes Tom holder', 9, 739.00);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('422807', 'Sonor AQ2 Bop Set WHP', 'Drum shell pack - Shell material: 7-Ply maple shell - Shell hardware: Chrome - Includes tom holder - New SmartMount tom holder system for balanced, optimal sustain with smaller hardware footprint - Colour: White Pearl (foil) - Shell pack consisting of: 18" x 14" Bass drum - 12" x 08" Tom tom - 14" x 13" Floor tom - 14" x 06" Wooden snare drum', 9, 1049.00);
+INSERT INTO catalog (item_id, name, description, category, price) VALUES ('433140', 'Yamaha Stage Custom Bop Kit NW', 'Shell set - Stage Custom Series - 6-Ply birch wood shells - High gloss lacquered - Chrome hardware - Y.E.S.S. tom holder system - Absolute tension rods - Steel hoops - Newly designed bass drum feet - Colour: Natural Wood - Shell set consisting of: 18" x 15" bass drum (drilled) - 12" x 08" Tom Tom - 14" x 13" Stand Tom - Includes single tom holder', 9, 698.00);
 
 INSERT INTO tag (tag_id, tag) VALUES (1, 'clothing');
 INSERT INTO tag (tag_id, tag) VALUES (2, 'handbag');
@@ -121,6 +139,8 @@ INSERT INTO tag (tag_id, tag) VALUES (28, 'lanyard');
 INSERT INTO tag (tag_id, tag) VALUES (29, 'keychain');
 INSERT INTO tag (tag_id, tag) VALUES (30, 'headphones');
 INSERT INTO tag (tag_id, tag) VALUES (31, 'mat');
+INSERT INTO tag (tag_id, tag) VALUES (32, 'drum sticks 5A');
+INSERT INTO tag (tag_id, tag) VALUES (33, 'drum shell sets');
 
 INSERT INTO catalog_tag (item_id,tag_id) VALUES ('329299', 1);
 INSERT INTO catalog_tag (item_id,tag_id) VALUES ('329299', 20);
@@ -224,6 +244,14 @@ INSERT INTO catalog_tag (item_id,tag_id) VALUES ('RHNAM-219-BLKGRY', 19);
 INSERT INTO catalog_tag (item_id,tag_id) VALUES ('RHNAM-219-BLKGRY', 31);
 INSERT INTO catalog_tag (item_id,tag_id) VALUES ('RHNL-008', 12);
 INSERT INTO catalog_tag (item_id,tag_id) VALUES ('444437', 12);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('101808', 32);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('144011', 32);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('459639', 32);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('101793', 32);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('101759', 32);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('328580', 33);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('422807', 33);
+INSERT INTO catalog_tag (item_id,tag_id) VALUES ('433140', 33);
 
 INSERT INTO public.customer (id, user_id, first_name, last_name, email, phone) VALUES (1, 'estout', 'Eliana', 'Stout', 'estout@email.com', '(317) 652-2229');
 INSERT INTO public.address (cust_id, address1, address2, city, zip, state, country) VALUES (1, '28 Cedar Crest', '', 'Gresham', '68367', 'NE', 'USA');
