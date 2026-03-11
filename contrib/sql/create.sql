@@ -369,3 +369,76 @@ ALTER TABLE ONLY public.line_item
 -- PostgreSQL database dump complete
 --
 
+--
+-- MCP Demo POC
+--
+
+--- enums
+
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'sessionstatus') THEN
+        CREATE TYPE public.sessionstatus AS ENUM ('ACTIVE', 'INACTIVE', 'EXPIRED', 'ARCHIVED');
+    END IF;
+END
+$$;
+
+-- request_sessions
+CREATE TABLE IF NOT EXISTS public.request_sessions (
+    id BIGINT NOT NULL,
+    session_id VARCHAR(36) NOT NULL,
+    user_id TEXT NOT NULL,
+    status public.sessionstatus NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    current_agent_id TEXT,
+    conversation_thread_id TEXT,
+    version INTEGER
+);
+ALTER TABLE ONLY public.request_sessions ADD CONSTRAINT pkey_request_sessions PRIMARY KEY (id);
+ALTER TABLE ONLY public.request_sessions ADD CONSTRAINT unique_session_id UNIQUE (session_id);
+ALTER TABLE ONLY public.request_sessions ADD CONSTRAINT unique_user_id UNIQUE (user_id);
+CREATE INDEX IF NOT EXISTS ix_session_id ON public.request_sessions (session_id);
+CREATE INDEX IF NOT EXISTS ix_request_sessions_user_id ON public.request_sessions (user_id);
+
+ALTER TABLE public.request_sessions OWNER TO $POSTGRESQL_USER;
+
+CREATE SEQUENCE public.request_sessions_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE public.request_sessions_seq OWNER TO $POSTGRESQL_USER;
+
+-- Langraph4J Postgres Saver
+CREATE TABLE IF NOT EXISTS public.LG4JThread (
+    thread_id UUID PRIMARY KEY,
+    thread_name VARCHAR(255),
+    is_released BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+ALTER TABLE public.LG4JThread OWNER TO $POSTGRESQL_USER;
+
+CREATE TABLE IF NOT EXISTS public.LG4JCheckpoint (
+    checkpoint_id UUID PRIMARY KEY,
+    parent_checkpoint_id UUID,
+    thread_id UUID NOT NULL,
+    node_id VARCHAR(255),
+    next_node_id VARCHAR(255),
+    state_data JSONB NOT NULL,
+    state_content_type VARCHAR(100) NOT NULL, 
+    saved_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_thread
+        FOREIGN KEY(thread_id)
+        REFERENCES public.LG4JThread(thread_id)
+        ON DELETE CASCADE
+);
+
+ALTER TABLE public.LG4JCheckpoint OWNER TO $POSTGRESQL_USER;
+
+CREATE INDEX IF NOT EXISTS idx_lg4jcheckpoint_thread_id ON public.LG4JCheckpoint(thread_id);
+CREATE INDEX IF NOT EXISTS idx_lg4jcheckpoint_thread_id_saved_at_desc ON public.LG4JCheckpoint(thread_id, saved_at DESC);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_lg4jthread_thread_name_unreleased  ON public.LG4JThread(thread_name) WHERE is_released = FALSE;
