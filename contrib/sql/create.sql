@@ -393,6 +393,7 @@ CREATE TABLE IF NOT EXISTS public.request_sessions (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     current_agent_id TEXT,
     conversation_thread_id TEXT,
+    conversation_checkpoint_id TEXT,
     version INTEGER
 );
 ALTER TABLE ONLY public.request_sessions ADD CONSTRAINT pkey_request_sessions PRIMARY KEY (id);
