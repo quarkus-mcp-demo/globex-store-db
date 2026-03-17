@@ -456,7 +456,8 @@ CREATE TABLE IF NOT EXISTS public.complaints (
     status TEXT,
     resolution TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    version INTEGER
 );
 
 ALTER TABLE ONLY public.complaints ADD CONSTRAINT pkey_complaints PRIMARY KEY (id);
