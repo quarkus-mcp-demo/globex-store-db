@@ -443,3 +443,32 @@ ALTER TABLE public.LG4JCheckpoint OWNER TO $POSTGRESQL_USER;
 CREATE INDEX IF NOT EXISTS idx_lg4jcheckpoint_thread_id ON public.LG4JCheckpoint(thread_id);
 CREATE INDEX IF NOT EXISTS idx_lg4jcheckpoint_thread_id_saved_at_desc ON public.LG4JCheckpoint(thread_id, saved_at DESC);
 CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_lg4jthread_thread_name_unreleased  ON public.LG4JThread(thread_name) WHERE is_released = FALSE;
+
+-- complaints
+CREATE TABLE IF NOT EXISTS public.complaints (
+    id BIGINT NOT NULL,
+    order_id BIGINT,
+    product_code TEXT,
+    issue_type TEXT,
+    severity TEXT,
+    complaint TEXT,
+    status TEXT,
+    resolution TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE ONLY public.complaints ADD CONSTRAINT pkey_complaints PRIMARY KEY (id);
+CREATE INDEX IF NOT EXISTS ix_complaints_order_id ON public.complaints (order_id);
+CREATE INDEX IF NOT EXISTS ix_complaints_status ON public.complaints (status);
+
+ALTER TABLE public.complaints OWNER TO $POSTGRESQL_USER;
+
+CREATE SEQUENCE public.complaints_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE public.complaints_seq OWNER TO $POSTGRESQL_USER;
