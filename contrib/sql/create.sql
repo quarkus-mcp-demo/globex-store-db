@@ -447,6 +447,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_lg4jthread_thread_name_unreleased  
 -- complaints
 CREATE TABLE IF NOT EXISTS public.complaints (
     id BIGINT NOT NULL,
+    user_id TEXT,
     order_id BIGINT,
     product_code TEXT,
     issue_type TEXT,
