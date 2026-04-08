@@ -1,0 +1,13 @@
+in scripts/complaints, create a python script that will:
+  * add sql insert statements for complaints in contrib/sql/initialize.sql
+  * the complaints are for all the products in the catalog
+  * generate between 40 and 50 complaints per product
+  * the complaints should belong to existing orders
+  * there should be no more than 1 complaint for a given product in a given order
+  * The complaint creation date should be later than the order creation date, but not after 2026-04-01.
+  * The complaints should be evenly distributed over severity critical, high, medium, low.
+  * The issue type should be mostly defect.
+  * The preferred resolution should be refund or replacement.
+  * Be creative with describing defects and quality issues that would be typical for the product, taking into account the nature of the product.
+  * The description of the complaint should be at least two sentences long.
+  * Use at least 15 complaint templates per product category and per complaint severity.

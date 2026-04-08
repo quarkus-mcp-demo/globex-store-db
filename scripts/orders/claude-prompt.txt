@@ -1,0 +1,8 @@
+in scripts/orders, create a python script that will:
+  * add sql insert statements for orders in contrib/sql/initialize.sql
+  * the orders are for all customers, except asilva. The orders should be distributed over the different customer ids.
+  * each order contains between 1 and 4 line items, with a quantity of 1 to 3
+  * the order line items can be any the products in the catalog
+  * the number of generated orders is not important, but every product should be part of approximately 100 generated orders
+  * The order timestamp should be between 2026-01-01 and 2026-04-01.
+  * add a shipping address to the generated orders. The shipping address should be the same address as the address of the customer who placed the order.
