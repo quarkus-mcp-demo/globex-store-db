@@ -12118,4 +12118,4 @@ INSERT INTO public.complaints (id, user_id, order_id, product_code, issue_type, 
 INSERT INTO public.complaints (id, user_id, order_id, product_code, issue_type, severity, complaint, status, resolution, created_at, updated_at, version) VALUES (1892, 'ahurst', 961, 'RHNL-018', 'quality', 'low', 'Fit runs slightly smaller than I expected based on sizing. Would have preferred if it was true to size.', 'in_progress', 'replacement', '2026-03-30 16:41:40.809', '2026-03-30 16:41:40.809', 1);
 INSERT INTO public.complaints (id, user_id, order_id, product_code, issue_type, severity, complaint, status, resolution, created_at, updated_at, version) VALUES (1893, 'sday', 418, 'RHNL-018', 'defect', 'low', 'Fabric weight feels lighter than my previous orders of this item. The quality seems to have decreased over time.', 'open', 'replacement', '2026-02-24 09:34:17.160', '2026-02-24 09:34:17.160', 1);
 
-ALTER SEQUENCE complaints_id_seq RESTART WITH 1894;
+ALTER SEQUENCE complaints_seq RESTART WITH 1894;
