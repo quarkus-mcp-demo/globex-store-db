@@ -255,7 +255,7 @@ ALTER TABLE public.line_item OWNER TO $POSTGRESQL_USER;
 --
 
 CREATE SEQUENCE public.line_item_id_seq
-    START WITH 1
+    START WITH 6000
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -270,7 +270,7 @@ ALTER TABLE public.line_item_id_seq OWNER TO $POSTGRESQL_USER;
 --
 
 CREATE SEQUENCE public.order_id_seq
-    START WITH 1
+    START WITH 3000
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -316,7 +316,7 @@ ALTER TABLE public.shipping_address OWNER TO $POSTGRESQL_USER;
 --
 
 CREATE SEQUENCE public.shipping_address_id_seq
-    START WITH 1
+    START WITH 3000
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -467,7 +467,7 @@ CREATE INDEX IF NOT EXISTS ix_complaints_status ON public.complaints (status);
 ALTER TABLE public.complaints OWNER TO $POSTGRESQL_USER;
 
 CREATE SEQUENCE public.complaints_seq
-    START WITH 1
+    START WITH 2500
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
